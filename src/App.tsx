@@ -1,33 +1,14 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useParams,
-  useSearchParams,
-} from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router";
 
-// Placeholder page components
-const Home = () => <h1>Home</h1>;
-const TeamMembers = () => <h1>Team Members</h1>;
-const MemberResume = () => {
-  const { slug } = useParams();
-  return <h1>Member resume: {slug}</h1>;
-};
-const ProjectsList = () => {
-  const [searchParams] = useSearchParams();
-  const search = searchParams.get("search") ?? "";
-  return <h1>Projects list (search: {search})</h1>;
-};
-const ProjectDetails = () => {
-  const { id } = useParams();
-  return <h1>Project details: {id}</h1>;
-};
-const BlogPosts = () => <h1>Blog Posts</h1>;
-const BlogPostDetails = () => {
-  const { slug } = useParams();
-  return <h1>Blog post: {slug}</h1>;
-};
-const NotFound = () => <h1>404 Not Found</h1>;
+// Import your actual page components
+import Home from "./pages/home/home";
+import TeamMembers from "./pages/team-members/team-members";
+import MemberResume from "./pages/member-resume/member-resume";
+import ProjectsList from "./pages/projects-list/projects-list";
+import ProjectDetails from "./pages/project-details/project-details";
+import BlogPosts from "./pages/blog-posts/blog-posts";
+import BlogPostDetails from "./pages/blog-post-details/blog-post-details";
+import NotFound from "./pages/not-found/not-found";
 
 export default function App() {
   return (
