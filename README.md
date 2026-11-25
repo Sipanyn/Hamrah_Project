@@ -5,6 +5,7 @@ A modern React 19 starter project built with **TypeScript** and **Vite**, featur
 ## 🚀 Tech Stack
 
 - [React 19](https://react.dev/) — UI library
+- [React Router](https://reactrouter.com/) — Client-side routing (LTS v7)
 - [TypeScript](https://www.typescriptlang.org/) — Type safety
 - [Vite](https://vite.dev/) — Build tool & dev server
 - [oxlint](https://oxc-project.github.io/) — Fast linting
@@ -16,6 +17,7 @@ A modern React 19 starter project built with **TypeScript** and **Vite**, featur
 - 🎨 Dark mode support with CSS variables
 - 📱 Responsive layout (mobile & desktop)
 - 🔢 Interactive counter component
+- 🔀 Client-side routing with React Router (LTS v7)
 - 🧩 Hero section with React & Vite logos
 - 📚 Documentation links section
 - 🌐 Social links section (GitHub, Discord, X, Bluesky)
@@ -117,4 +119,4 @@ This project is private and licensed as specified in `package.json`.
 
 ---
 
-Built with ⚡️ Vite, ⚛️ React 19, and TypeScript.
+Built with ⚡️ Vite, ⚛️ React 19, 🛣️ React Router, and TypeScript.
