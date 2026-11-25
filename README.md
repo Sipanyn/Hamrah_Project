@@ -9,6 +9,7 @@ A modern React 19 starter project built with **TypeScript** and **Vite**, featur
 - [TypeScript](https://www.typescriptlang.org/) — Type safety
 - [Vite](https://vite.dev/) — Build tool & dev server
 - [oxlint](https://oxc-project.github.io/) — Fast linting
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS (v4)
 - CSS Variables — Theming (light/dark mode)
 
 ## 📦 Features
@@ -18,6 +19,7 @@ A modern React 19 starter project built with **TypeScript** and **Vite**, featur
 - 📱 Responsive layout (mobile & desktop)
 - 🔢 Interactive counter component
 - 🔀 Client-side routing with React Router (LTS v7)
+- 🎨 Utility-first styling with Tailwind CSS (v4)
 - 🧩 Hero section with React & Vite logos
 - 📚 Documentation links section
 - 🌐 Social links section (GitHub, Discord, X, Bluesky)
@@ -35,12 +37,23 @@ Hamrah_Project/
 │   │   ├── hero.png
 │   │   ├── react.svg
 │   │   └── vite.svg
-│   ├── App.tsx          # Root component
+│   ├── pages/           # Page components (route views)
+│   │   ├── home/
+│   │   ├── team-members/
+│   │   ├── member-resume/
+│   │   ├── projects-list/
+│   │   ├── project-details/
+│   │   ├── blog-posts/
+│   │   ├── blog-post-details/
+│   │   └── not-found/
+│   ├── App.tsx          # Root component & route config
 │   ├── App.css          # Component styles
-│   ├── index.css        # Global styles & CSS variables
+│   ├── index.css        # Global styles + Tailwind directives
 │   └── main.tsx         # Entry point
 ├── index.html           # HTML template
 ├── vite.config.ts       # Vite configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
 ├── tsconfig.json        # TypeScript configuration
 ├── tsconfig.app.json
 ├── tsconfig.node.json
@@ -119,4 +132,4 @@ This project is private and licensed as specified in `package.json`.
 
 ---
 
-Built with ⚡️ Vite, ⚛️ React 19, 🛣️ React Router, and TypeScript.
+Built with ⚡️ Vite, ⚛️ React 19, 🛣️ React Router, 🎨 Tailwind CSS, and TypeScript.
