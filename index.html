@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hamrah_Project</title>
+    <meta id="theme-color" name="theme-color" content="#F5F5F2" />
+    <meta name="description" content="NOVA — Four minds. One universe. An independent creative team." />
+    <title>NOVA — Four minds. One universe.</title>
+    <script>
+      try {
+        const preferences = JSON.parse(localStorage.getItem("nova-preferences") || "{}");
+        const locale = preferences.locale === "fa" ? "fa" : "en";
+        const theme = preferences.theme === "dark" ? "dark" : "light";
+        document.documentElement.lang = locale;
+        document.documentElement.dir = locale === "fa" ? "rtl" : "ltr";
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        document.getElementById("theme-color")?.setAttribute("content", theme === "dark" ? "#08090C" : "#F5F5F2");
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

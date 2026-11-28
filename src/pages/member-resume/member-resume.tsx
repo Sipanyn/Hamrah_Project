@@ -35,7 +35,7 @@ const MemberResume = (): React.ReactElement => {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-      <Link to="/team" style={{ color: "#f59e0b", textDecoration: "none" }}>
+        <Link to="/team" style={{ color: "var(--nova-orange)", textDecoration: "none" }}>
         &larr; Back to Team
       </Link>
       <div
@@ -52,18 +52,18 @@ const MemberResume = (): React.ReactElement => {
           </h1>
           <p
             style={{
-              color: "#f59e0b",
+              color: "var(--nova-orange)",
               fontWeight: "600",
               marginBottom: "1rem",
             }}
           >
             {member.role}
           </p>
-          <p style={{ color: "#444", lineHeight: "1.6" }}>{member.bio}</p>
+          <p style={{ color: "var(--text-secondary)", lineHeight: "1.6" }}>{member.bio}</p>
         </div>
       </div>
       {slug && (
-        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "#999" }}>
+        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "var(--text-muted)" }}>
           Slug: {slug}
         </p>
       )}

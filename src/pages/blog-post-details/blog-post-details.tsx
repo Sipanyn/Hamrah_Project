@@ -41,16 +41,16 @@ const BlogPostDetails = (): React.ReactElement => {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "700px", margin: "0 auto" }}>
-      <Link to="/blog" style={{ color: "#f59e0b", textDecoration: "none" }}>
+      <Link to="/blog" style={{ color: "var(--nova-orange)", textDecoration: "none" }}>
         &larr; Back to Blog
       </Link>
       <h1 style={{ fontSize: "2.5rem", margin: "1.5rem 0 0.5rem" }}>
         {post.title}
       </h1>
-      <p style={{ color: "#999", fontSize: "0.9rem", marginBottom: "2rem" }}>
+      <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "2rem" }}>
         {post.date}
       </p>
-      <div style={{ color: "#333", lineHeight: "1.8", fontSize: "1.1rem" }}>
+      <div style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.1rem" }}>
         <p>{post.content}</p>
         <p>
           This is a detailed article page. You can add rich content, images, and
@@ -58,7 +58,7 @@ const BlogPostDetails = (): React.ReactElement => {
         </p>
       </div>
       {slug && (
-        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "#999" }}>
+        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "var(--text-muted)" }}>
           Slug: {slug}
         </p>
       )}

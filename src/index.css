@@ -1,16 +1,166 @@
 @import "tailwindcss";
+@import "./assets/fonts/style.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
 
 @theme {
-  --color-bg: #ffffff;
-  --color-fg: #111827;
-  --color-muted: #6b7280;
-  --color-accent: #f59e0b;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+  --font-persian: "Dana", Tahoma, sans-serif;
+  --text-hero: clamp(3.25rem, 10vw, 8rem);
+  --text-page-title: clamp(2.25rem, 5vw, 4.5rem);
+  --text-section-title: clamp(1.75rem, 3.5vw, 3.25rem);
+  --text-body-fluid: clamp(0.95rem, 1.1vw, 1.125rem);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-nova-orange: var(--nova-orange);
+  --color-cosmic-blue: var(--cosmic-blue);
+}
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --font-space-grotesk: "Space Grotesk", "Inter", sans-serif;
+  --font-inter: "Inter", Arial, sans-serif;
+  --font-dana: "Dana", Tahoma, sans-serif;
+  --font-persian: var(--font-dana);
+
+  --bg: #F5F5F2;
+  --surface: #FFFFFF;
+  --surface-elevated: #EBEDF1;
+  --text: #08090C;
+  --text-secondary: #555B66;
+  --text-muted: #858B96;
+  --border: #DDE0E6;
+  --input: #FFFFFF;
+  --nova-orange: #FF7A30;
+  --cosmic-blue: #0466C8;
+  --on-accent: #08090C;
+  background: var(--bg);
+  color: var(--text);
+}
+
+:root[data-theme="dark"],
+:root.dark {
+  color-scheme: dark;
+  --bg: #08090C;
+  --surface: #17191F;
+  --surface-elevated: #22252D;
+  --text: #F5F5F2;
+  --text-secondary: #A6A9B2;
+  --text-muted: #686D78;
+  --border: #292D36;
+  --input: #17191F;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-fg);
-  font-family: var(--font-sans);
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-inter);
+    font-weight: 400;
+  }
+
+  html[lang="fa"] body {
+    font-family: var(--font-persian);
+  }
+
+  html[lang="en"] :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-space-grotesk);
+    font-weight: 400;
+  }
+
+  html[lang="fa"] :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-persian);
+    font-weight: 600;
+  }
+
+  html[lang="fa"] :is(button, input, select, textarea) {
+    font-family: var(--font-persian);
+    font-weight: 400;
+  }
+}
+
+.nova-wordmark {
+  font-family: var(--font-space-grotesk);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+}
+
+.latin-metadata {
+  font-family: var(--font-space-grotesk);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+}
+
+html[lang="fa"] body :not(.latin-metadata):not(.nova-wordmark) {
+  letter-spacing: normal !important;
+}
+
+html[lang="fa"] :is(h1, h2, h3, h4, h5, h6):not(.nova-wordmark) {
+  font-family: var(--font-persian) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+html[lang="en"] :is(h1, h2, h3, h4, h5, h6):not(.nova-wordmark) {
+  font-family: var(--font-space-grotesk) !important;
+  font-weight: 400 !important;
+}
+
+html[lang="fa"] :is(button, input, select, textarea) {
+  font-family: var(--font-persian) !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  color: #fff;
+  background: var(--nova-orange);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -10,7 +10,7 @@ const Home = (): React.ReactElement => {
       <p
         style={{
           fontSize: "1.1rem",
-          color: "#666",
+          color: "var(--text-secondary)",
           maxWidth: "600px",
           margin: "0 auto 2rem",
         }}
@@ -29,8 +29,8 @@ const Home = (): React.ReactElement => {
           to="/team"
           style={{
             padding: "0.75rem 1.5rem",
-            background: "#f59e0b",
-            color: "#fff",
+            background: "var(--nova-orange)",
+            color: "var(--on-accent)",
             textDecoration: "none",
             borderRadius: "6px",
             fontWeight: "600",
@@ -42,8 +42,8 @@ const Home = (): React.ReactElement => {
           to="/projects"
           style={{
             padding: "0.75rem 1.5rem",
-            border: "1px solid #ccc",
-            color: "#333",
+            border: "1px solid var(--border)",
+            color: "var(--text)",
             textDecoration: "none",
             borderRadius: "6px",
             fontWeight: "600",

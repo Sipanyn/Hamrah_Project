@@ -5,15 +5,15 @@ const NotFound = (): React.ReactElement => {
   return (
     <div style={{ padding: "4rem 2rem", textAlign: "center" }}>
       <h1 style={{ fontSize: "3rem", marginBottom: "0.5rem" }}>404</h1>
-      <p style={{ fontSize: "1.25rem", color: "#666", marginBottom: "2rem" }}>
+      <p style={{ fontSize: "1.25rem", color: "var(--text-secondary)", marginBottom: "2rem" }}>
         Page not found
       </p>
       <Link
         to="/"
         style={{
           padding: "0.75rem 1.5rem",
-          background: "#f59e0b",
-          color: "#fff",
+          background: "var(--nova-orange)",
+          color: "var(--on-accent)",
           textDecoration: "none",
           borderRadius: "6px",
           fontWeight: "600",

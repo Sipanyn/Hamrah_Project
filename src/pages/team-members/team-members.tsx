@@ -57,7 +57,7 @@ const TeamMembers = (): React.ReactElement => {
           <div
             key={member.id}
             style={{
-              border: "1px solid #e5e5e5",
+              border: "1px solid var(--border)",
               borderRadius: "8px",
               padding: "1rem",
               display: "flex",
@@ -76,12 +76,12 @@ const TeamMembers = (): React.ReactElement => {
               }}
             />
             <h3 style={{ margin: "0.25rem 0" }}>{member.name}</h3>
-            <p style={{ color: "#666", fontSize: "0.9rem" }}>{member.role}</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>{member.role}</p>
             <Link
               to={`/team/${member.slug}`}
               style={{
                 marginTop: "0.75rem",
-                color: "#f59e0b",
+                color: "var(--nova-orange)",
                 textDecoration: "none",
                 fontWeight: "600",
                 fontSize: "0.9rem",

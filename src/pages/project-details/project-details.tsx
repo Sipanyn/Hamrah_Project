@@ -47,20 +47,20 @@ const ProjectDetails = (): React.ReactElement => {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-      <Link to="/projects" style={{ color: "#f59e0b", textDecoration: "none" }}>
+      <Link to="/projects" style={{ color: "var(--nova-orange)", textDecoration: "none" }}>
         &larr; Back to Projects
       </Link>
       <h1 style={{ fontSize: "2.5rem", margin: "1.5rem 0 0.5rem" }}>
         {project.title}
       </h1>
-      <p style={{ color: "#f59e0b", fontWeight: "600", marginBottom: "1rem" }}>
+      <p style={{ color: "var(--nova-orange)", fontWeight: "600", marginBottom: "1rem" }}>
         {project.category}
       </p>
-      <p style={{ color: "#444", lineHeight: "1.6", fontSize: "1.1rem" }}>
+      <p style={{ color: "var(--text-secondary)", lineHeight: "1.6", fontSize: "1.1rem" }}>
         {project.description}
       </p>
       {id && (
-        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "#999" }}>
+        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "var(--text-muted)" }}>
           Project ID: {id}
         </p>
       )}

@@ -33,13 +33,13 @@ const BlogPosts = (): React.ReactElement => {
         {posts.map((post) => (
           <div
             key={post.slug}
-            style={{ borderBottom: "1px solid #e5e5e5", paddingBottom: "1rem" }}
+            style={{ borderBottom: "1px solid var(--border)", paddingBottom: "1rem" }}
           >
             <h2 style={{ margin: "0 0 0.5rem 0" }}>{post.title}</h2>
-            <p style={{ color: "#666", margin: "0 0 0.5rem 0" }}>
+            <p style={{ color: "var(--text-secondary)", margin: "0 0 0.5rem 0" }}>
               {post.excerpt}
             </p>
-            <p style={{ color: "#999", fontSize: "0.85rem", margin: 0 }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", margin: 0 }}>
               {post.date}
             </p>
             <Link
@@ -47,7 +47,7 @@ const BlogPosts = (): React.ReactElement => {
               style={{
                 display: "inline-block",
                 marginTop: "0.75rem",
-                color: "#f59e0b",
+                color: "var(--nova-orange)",
                 textDecoration: "none",
                 fontWeight: "600",
               }}

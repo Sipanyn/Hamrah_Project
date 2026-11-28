@@ -77,7 +77,7 @@ const ProjectsList = (): React.ReactElement => {
           <div
             key={project.id}
             style={{
-              border: "1px solid #e5e5e5",
+              border: "1px solid var(--border)",
               borderRadius: "8px",
               overflow: "hidden",
             }}
@@ -89,7 +89,7 @@ const ProjectsList = (): React.ReactElement => {
             />
             <div style={{ padding: "1rem" }}>
               <h3 style={{ margin: "0 0 0.25rem 0" }}>{project.title}</h3>
-              <p style={{ color: "#666", fontSize: "0.9rem", margin: 0 }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", margin: 0 }}>
                 {project.category}
               </p>
             </div>
@@ -98,8 +98,8 @@ const ProjectsList = (): React.ReactElement => {
               style={{
                 display: "block",
                 padding: "0.75rem",
-                background: "#f59e0b",
-                color: "#fff",
+                background: "var(--nova-orange)",
+                color: "var(--on-accent)",
                 textAlign: "center",
                 textDecoration: "none",
                 fontWeight: "600",
@@ -112,7 +112,7 @@ const ProjectsList = (): React.ReactElement => {
       </div>
 
       {filtered.length === 0 && (
-        <p style={{ textAlign: "center", color: "#666", marginTop: "2rem" }}>
+        <p style={{ textAlign: "center", color: "var(--text-secondary)", marginTop: "2rem" }}>
           No projects found.
         </p>
       )}
