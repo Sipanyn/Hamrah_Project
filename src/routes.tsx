@@ -9,39 +9,21 @@ import ProjectDetails from "./pages/project-details/project-details";
 import BlogPosts from "./pages/blog-posts/blog-posts";
 import BlogPostDetails from "./pages/blog-post-details/blog-post-details";
 import NotFound from "./pages/not-found/not-found";
+import SiteLayout from "./components/layout/site-layout";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/team",
-    element: <TeamMembers />,
-  },
-  {
-    path: "/team/:slug",
-    element: <MemberResume />,
-  },
-  {
-    path: "/projects",
-    element: <ProjectsList />,
-  },
-  {
-    path: "/projects/:id",
-    element: <ProjectDetails />,
-  },
-  {
-    path: "/blog",
-    element: <BlogPosts />,
-  },
-  {
-    path: "/blog/:slug",
-    element: <BlogPostDetails />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
+    element: <SiteLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/team", element: <TeamMembers /> },
+      { path: "/team/:slug", element: <MemberResume /> },
+      { path: "/projects", element: <ProjectsList /> },
+      { path: "/projects/:id", element: <ProjectDetails /> },
+      { path: "/blog", element: <BlogPosts /> },
+      { path: "/blog/:slug", element: <BlogPostDetails /> },
+      { path: "*", element: <NotFound /> },
+    ],
   },
 ]);
 
