@@ -1,43 +1,69 @@
-import { Link, useParams } from "react-router";
-import { getMessages } from "../../i18n/messages";
-import { usePreferences } from "../../preferences/preferences-context";
+import { useParams, Link } from "react-router";
+// import styles from './blog-post-details.module.css';
 
-const posts = {
-  "hello-world": {
-    title: { en: "Hello World", fa: "سلام دنیا" },
-    date: { en: "Nov 20, 2026", fa: "۲۹ آبان ۱۴۰۵" },
-    content: { en: "Welcome to our journal! This is our first post where we share thoughts on design, development, and creativity.", fa: "به دفتر یادداشت ما خوش آمدید! این نخستین نوشته‌ی ما درباره‌ی طراحی، توسعه و خلاقیت است." },
-  },
-  "react-router-guide": {
-    title: { en: "React Router v7 Guide", fa: "راهنمای React Router نسخه‌ی ۷" },
-    date: { en: "Nov 18, 2026", fa: "۲۷ آبان ۱۴۰۵" },
-    content: { en: "React Router v7 is the LTS release. In this guide we cover how to set up routes, dynamic params, and navigation.", fa: "React Router نسخه‌ی ۷ یک انتشار بلندمدت است. در این راهنما ساخت مسیرها، پارامترهای پویا و ناوبری را مرور می‌کنیم." },
-  },
-  "rtl-layout-tips": {
-    title: { en: "RTL Layout Tips", fa: "نکته‌هایی برای چیدمان راست‌به‌چپ" },
-    date: { en: "Nov 15, 2026", fa: "۲۴ آبان ۱۴۰۵" },
-    content: { en: "Building right-to-left interfaces requires attention to direction, text alignment, and mirrored layouts.", fa: "ساخت رابط راست‌به‌چپ به توجه به جهت متن، تراز نوشته‌ها و آینه‌ای‌شدن چیدمان نیاز دارد." },
-  },
-} as const;
-
-export default function BlogPostDetails() {
+const BlogPostDetails = (): React.ReactElement => {
   const { slug } = useParams();
-  const { locale, direction } = usePreferences();
-  const t = getMessages(locale);
-  const post = posts[slug as keyof typeof posts];
+
+  const posts: Record<
+    string,
+    { title: string; date: string; content: string }
+  > = {
+    "hello-world": {
+      title: "Hello World",
+      date: "Nov 20, 2026",
+      content:
+        "Welcome to our blog! This is our first post where we share thoughts on design, development, and creativity.",
+    },
+    "react-router-guide": {
+      title: "React Router v7 Guide",
+      date: "Nov 18, 2026",
+      content:
+        "React Router v7 is the LTS release... In this guide we cover how to set up routes, dynamic params, and navigation.",
+    },
+    "rtl-layout-tips": {
+      title: "RTL Layout Tips",
+      date: "Nov 15, 2026",
+      content:
+        "Building right-to-left interfaces requires attention to direction, text alignment, and mirrored layouts.",
+    },
+  };
+
+  const post = posts[slug ?? ""];
 
   if (!post) {
-    return <main dir={direction} className="min-h-screen px-6 pb-20 pt-40 text-center text-[var(--text)]"><h1 className="text-3xl">{t.postNotFound}</h1><Link to="/blog" className="mt-6 inline-block text-nova-orange">{t.backToJournal}</Link></main>;
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <h1>Post not found</h1>
+        <Link to="/blog">Back to Blog</Link>
+      </div>
+    );
   }
 
   return (
-    <main dir={direction} className="min-h-screen px-6 pb-20 pt-36 text-[var(--text)] sm:px-10">
-      <article className="mx-auto max-w-3xl rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-12">
-        <Link to="/blog" className="text-sm text-nova-orange no-underline">← {t.backToJournal}</Link>
-        <p className="mt-9 text-xs text-[var(--text-muted)]">{post.date[locale]}</p>
-        <h1 className="mt-3 text-4xl font-light sm:text-6xl">{post.title[locale]}</h1>
-        <div className="mt-7 text-base leading-8 text-[var(--text-secondary)]"><p>{post.content[locale]}</p></div>
-      </article>
-    </main>
+    <div style={{ padding: "2rem", maxWidth: "700px", margin: "0 auto" }}>
+      <Link to="/blog" style={{ color: "var(--nova-orange)", textDecoration: "none" }}>
+        &larr; Back to Blog
+      </Link>
+      <h1 style={{ fontSize: "2.5rem", margin: "1.5rem 0 0.5rem" }}>
+        {post.title}
+      </h1>
+      <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "2rem" }}>
+        {post.date}
+      </p>
+      <div style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.1rem" }}>
+        <p>{post.content}</p>
+        <p>
+          This is a detailed article page. You can add rich content, images, and
+          more here.
+        </p>
+      </div>
+      {slug && (
+        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "var(--text-muted)" }}>
+          Slug: {slug}
+        </p>
+      )}
+    </div>
   );
-}
+};
+
+export default BlogPostDetails;

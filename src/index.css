@@ -7,40 +7,34 @@
 @theme {
   --font-display: "Space Grotesk", "Inter", sans-serif;
   --font-body: "Inter", Arial, sans-serif;
-  --font-persian: "Peyda", Tahoma, sans-serif;
+  --font-persian: "Dana", Tahoma, sans-serif;
   --text-hero: clamp(3.25rem, 10vw, 8rem);
   --text-page-title: clamp(2.25rem, 5vw, 4.5rem);
   --text-section-title: clamp(1.75rem, 3.5vw, 3.25rem);
   --text-body-fluid: clamp(0.95rem, 1.1vw, 1.125rem);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-nova-orange: var(--nova-orange);
   --color-cosmic-blue: var(--cosmic-blue);
-  --color-orange-100: var(--nova-orange);
-  --color-orange-200: var(--nova-orange);
-  --color-orange-300: var(--nova-orange);
-  --color-orange-400: var(--nova-orange);
-  --color-blue-100: var(--cosmic-blue);
-  --color-blue-200: var(--cosmic-blue);
-  --color-blue-300: var(--cosmic-blue);
-  --color-blue-400: var(--cosmic-blue);
-  --color-slate-200: var(--text-secondary);
-  --color-slate-300: var(--text-secondary);
-  --color-slate-400: var(--text-secondary);
-  --color-slate-500: var(--text-muted);
-  --color-slate-600: var(--text-secondary);
 }
 
 :root {
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  color-scheme: light;
 
   --font-space-grotesk: "Space Grotesk", "Inter", sans-serif;
   --font-inter: "Inter", Arial, sans-serif;
-  --font-peyda: "Peyda", Tahoma, sans-serif;
+  --font-dana: "Dana", Tahoma, sans-serif;
+  --font-persian: var(--font-dana);
 
   --bg: #F5F5F2;
   --surface: #FFFFFF;
@@ -52,15 +46,7 @@
   --input: #FFFFFF;
   --nova-orange: #FF7A30;
   --cosmic-blue: #0466C8;
-
-  --nova-bg: var(--bg);
-  --nova-fg: var(--text);
-  --nova-card: var(--surface);
-  --nova-panel: var(--surface-elevated);
-  --nova-muted: var(--text-muted);
-  --nova-border: var(--border);
-  --nova-control-bg: var(--input);
-  --nova-control-fg: var(--text);
+  --on-accent: #08090C;
   background: var(--bg);
   color: var(--text);
 }
@@ -76,14 +62,6 @@
   --text-muted: #686D78;
   --border: #292D36;
   --input: #17191F;
-  --nova-bg: var(--bg);
-  --nova-fg: var(--text);
-  --nova-card: var(--surface);
-  --nova-panel: var(--surface-elevated);
-  --nova-muted: var(--text-muted);
-  --nova-border: var(--border);
-  --nova-control-bg: var(--input);
-  --nova-control-fg: var(--text);
 }
 
 * {
@@ -110,7 +88,7 @@ body {
   }
 
   html[lang="fa"] body {
-    font-family: var(--font-peyda);
+    font-family: var(--font-persian);
   }
 
   html[lang="en"] :is(h1, h2, h3, h4, h5, h6) {
@@ -119,12 +97,12 @@ body {
   }
 
   html[lang="fa"] :is(h1, h2, h3, h4, h5, h6) {
-    font-family: var(--font-peyda);
+    font-family: var(--font-persian);
     font-weight: 600;
   }
 
   html[lang="fa"] :is(button, input, select, textarea) {
-    font-family: var(--font-peyda);
+    font-family: var(--font-persian);
     font-weight: 400;
   }
 }
@@ -146,7 +124,7 @@ html[lang="fa"] body :not(.latin-metadata):not(.nova-wordmark) {
 }
 
 html[lang="fa"] :is(h1, h2, h3, h4, h5, h6):not(.nova-wordmark) {
-  font-family: var(--font-peyda) !important;
+  font-family: var(--font-persian) !important;
   font-weight: 600 !important;
   letter-spacing: normal !important;
 }
@@ -157,7 +135,7 @@ html[lang="en"] :is(h1, h2, h3, h4, h5, h6):not(.nova-wordmark) {
 }
 
 html[lang="fa"] :is(button, input, select, textarea) {
-  font-family: var(--font-peyda) !important;
+  font-family: var(--font-persian) !important;
   font-weight: 500 !important;
   letter-spacing: normal !important;
 }
@@ -174,54 +152,6 @@ button {
 ::selection {
   color: #fff;
   background: var(--nova-orange);
-}
-
-:root[data-theme="light"] .home-hero {
-  background-image: linear-gradient(112deg, #F5F5F2 0%, #EEF0F3 48%, #EBEDF1 100%);
-}
-
-:root[data-theme="light"] .home-hero [data-space-starfield] {
-  opacity: 0.12;
-}
-
-:root[data-theme="light"] .about-visual {
-  background: radial-gradient(ellipse at 50% 65%, #DDE7F0 0%, #EBEDF1 50%, #F5F5F2 100%);
-}
-
-:root[data-theme="light"] .about-world {
-  background: radial-gradient(circle at 32% 28%, #fff 0%, #9EB7D0 16%, #52789F 48%, #243D5B 76%);
-  box-shadow: 0 12px 48px rgb(51 88 128 / 24%);
-}
-
-:root[data-theme="light"] .contact-horizon {
-  background: radial-gradient(ellipse at 50% 100%, #EBEDF1, #F5F5F2 70%);
-}
-
-:root[data-theme="light"] .mission-planet {
-  opacity: 0.35;
-}
-
-.mission-planet {
-  border: 1px solid rgb(215 232 255 / 14%);
-  background: radial-gradient(circle at 30% 27%, #b7cae1 0%, #5c779a 18%, #1c3048 44%, #090e17 72%);
-  box-shadow: inset -18px -9px 30px rgb(0 0 0 / 70%), 0 0 35px rgb(95 141 204 / 16%);
-}
-
-.mission-card-2 .mission-planet {
-  background: radial-gradient(circle at 30% 27%, #f2bc8d 0%, #9b644a 18%, #493042 44%, #100d18 72%);
-}
-
-.mission-card-3 .mission-planet {
-  background: radial-gradient(circle at 30% 27%, #b7d8ff 0%, #617da7 18%, #263555 44%, #090e17 72%);
-}
-
-.mission-card-4 .mission-planet {
-  background: radial-gradient(circle at 30% 27%, #ffc99c 0%, #b26647 18%, #533249 44%, #100d18 72%);
-}
-
-.about-world {
-  background: radial-gradient(circle at 32% 28%, #bacce1 0%, #536b8a 16%, #1d2d44 48%, #080c13 76%);
-  box-shadow: 0 12px 48px rgb(38 71 112 / 30%);
 }
 
 @media (prefers-reduced-motion: reduce) {

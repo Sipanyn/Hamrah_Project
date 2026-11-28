@@ -1,48 +1,71 @@
-import { Link, useParams } from "react-router";
-import { getMessages } from "../../i18n/messages";
-import { usePreferences } from "../../preferences/preferences-context";
+import { useParams, Link } from "react-router";
+// import styles from './project-details.module.css';
 
-const projects = {
-  "1": {
-    title: { en: "Modern Living Room", fa: "اتاق نشیمن مدرن" },
-    category: { en: "Interior Design", fa: "طراحی داخلی" },
-    description: { en: "A spacious living room with natural light, wooden accents, and comfortable seating for relaxation.", fa: "اتاق نشیمنی دلباز با نور طبیعی، جزئیات چوبی و فضایی راحت برای استراحت." },
-  },
-  "2": {
-    title: { en: "Office Workspace", fa: "فضای کار اداری" },
-    category: { en: "Office Design", fa: "طراحی محیط کار" },
-    description: { en: "An ergonomic office space designed for productivity with standing desks and collaborative zones.", fa: "فضایی ارگونومیک برای کار و تمرکز، با میزهای ایستاده و بخش‌هایی برای همکاری تیمی." },
-  },
-  "3": {
-    title: { en: "Cafe Interior", fa: "طراحی داخلی کافه" },
-    category: { en: "Commercial Design", fa: "طراحی تجاری" },
-    description: { en: "A cozy cafe interior with warm lighting, rustic tables, and an inviting atmosphere.", fa: "فضای دنج کافه با نور گرم، میزهای روستیک و حال‌وهوایی صمیمی." },
-  },
-  "4": {
-    title: { en: "Bedroom Retreat", fa: "اتاق‌خواب آرامش‌بخش" },
-    category: { en: "Residential Design", fa: "طراحی مسکونی" },
-    description: { en: "A serene bedroom design with soft textures, a neutral palette, and a calming ambiance.", fa: "طراحی اتاق‌خوابی آرام با بافت‌های لطیف، رنگ‌های خنثی و فضایی دلنشین." },
-  },
-} as const;
-
-export default function ProjectDetails() {
+const ProjectDetails = (): React.ReactElement => {
   const { id } = useParams();
-  const { locale, direction } = usePreferences();
-  const t = getMessages(locale);
-  const project = projects[id as keyof typeof projects];
+
+  const projects: Record<
+    string,
+    { title: string; category: string; description: string }
+  > = {
+    "1": {
+      title: "Modern Living Room",
+      category: "Interior Design",
+      description:
+        "A spacious living room with natural light, wooden accents, and comfortable seating for relaxation.",
+    },
+    "2": {
+      title: "Office Workspace",
+      category: "Office Design",
+      description:
+        "An ergonomic office space designed for productivity with standing desks and collaborative zones.",
+    },
+    "3": {
+      title: "Cafe Interior",
+      category: "Commercial Design",
+      description:
+        "Cozy cafe interior with warm lighting, rustic tables, and inviting atmosphere.",
+    },
+    "4": {
+      title: "Bedroom Retreat",
+      category: "Residential Design",
+      description:
+        "Serene bedroom design with soft textures, neutral palette, and calming ambiance.",
+    },
+  };
+
+  const project = projects[id ?? ""];
 
   if (!project) {
-    return <main dir={direction} className="min-h-screen px-6 pb-20 pt-40 text-center text-[var(--text)]"><h1 className="text-3xl">{t.projectNotFound}</h1><Link to="/projects" className="mt-6 inline-block text-nova-orange">{t.backToProjects}</Link></main>;
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <h1>Project not found</h1>
+        <Link to="/projects">Back to Projects</Link>
+      </div>
+    );
   }
 
   return (
-    <main dir={direction} className="min-h-screen px-6 pb-20 pt-36 text-[var(--text)] sm:px-10">
-      <article className="mx-auto max-w-4xl rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-12">
-        <Link to="/projects" className="text-sm text-nova-orange no-underline">← {t.backToProjects}</Link>
-        <p className="mt-9 text-xs uppercase tracking-[.2em] text-cosmic-blue">{project.category[locale]}</p>
-        <h1 className="mt-3 text-4xl font-light sm:text-6xl">{project.title[locale]}</h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-[var(--text-secondary)]">{project.description[locale]}</p>
-      </article>
-    </main>
+    <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
+      <Link to="/projects" style={{ color: "var(--nova-orange)", textDecoration: "none" }}>
+        &larr; Back to Projects
+      </Link>
+      <h1 style={{ fontSize: "2.5rem", margin: "1.5rem 0 0.5rem" }}>
+        {project.title}
+      </h1>
+      <p style={{ color: "var(--nova-orange)", fontWeight: "600", marginBottom: "1rem" }}>
+        {project.category}
+      </p>
+      <p style={{ color: "var(--text-secondary)", lineHeight: "1.6", fontSize: "1.1rem" }}>
+        {project.description}
+      </p>
+      {id && (
+        <p style={{ marginTop: "2rem", fontSize: "0.85rem", color: "var(--text-muted)" }}>
+          Project ID: {id}
+        </p>
+      )}
+    </div>
   );
-}
+};
+
+export default ProjectDetails;

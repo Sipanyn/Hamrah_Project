@@ -1,12 +1,13 @@
-# UI component areas
+# Component work areas
 
-- `layout/` — site-wide header, footer, and page shell.
-- `home/` — landing page sections and preview cards.
-- `team/` — crew cards and team profile UI.
-- `projects/` — mission cards, project list, and project details UI.
-- `journal/` — article cards, journal list, and article details UI.
-- `shared/` — small UI pieces used by more than one area.
+The folders are reserved for parallel component work:
 
-Route-level pages stay in `src/pages/`. Each area should export its components
-from its own folder; the person integrating the site owns route changes and
-shared files such as `routes.tsx`, `index.css`, and the preferences provider.
+- `layout/` — shared site shell when the team is ready to design it.
+- `home/` — landing page sections.
+- `team/` — crew list and profiles.
+- `projects/` — project list and details.
+- `journal/` — article list and details.
+- `shared/` — small site-wide controls, including the current language/theme switches.
+
+Route-level pages remain in `src/pages/`. Keep shared preference and global
+style changes coordinated through the person integrating the branches.
